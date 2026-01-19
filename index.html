@@ -3,21 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandylicia | Bombons de Amor</title>
+    <title>Sandylicia | Bombons Artesanais</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="logo">Sandy<span>licia</span></div>
-        <p>Os bombons da Sandy feitos para você!</p>
+        <nav>
+            <a href="#home">Início</a>
+            <a href="#vitrine">Produtos</a>
+            <div class="cart-btn" onclick="toggleCart()">
+                <i class="fas fa-shopping-basket"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </nav>
     </header>
 
-    <div class="card-loja">
-        <div class="item">
-            <h3>🍫 Bombom de Brigadeiro</h3>
-            <p>R$ 5,00</p>
-            <button>Quero esse!</button>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Feitos com Amor, <br><span>Comidos com Paixão.</span></h1>
+            <p>Conheça a história por trás dos bombons mais amados da região. Receitas da Sandy que transformam qualquer momento em uma festa.</p>
+            <a href="#vitrine" class="btn-main">Ver Vitrine</a>
+        </div>
+    </section>
+
+    <section id="vitrine" class="products">
+        <h2 class="title">Nossa Vitrine</h2>
+        <div class="grid-doces">
+            <div class="card-doce">
+                <div class="tag">Mais Pedido</div>
+                <div class="img-doce">🍓</div>
+                <h3>Bombom de Morango</h3>
+                <p>Morango fresco envolto em brigadeiro gourmet e chocolate belga.</p>
+                <span class="price">R$ 6,00</span>
+                <button onclick="addToCart('Bombom de Morango', 6)">Adicionar</button>
+            </div>
+
+            <div class="card-doce">
+                <div class="img-doce">🥥</div>
+                <h3>Beijinho de Coco</h3>
+                <p>O clássico coco ralado com um toque especial de leite condensado.</p>
+                <span class="price">R$ 5,00</span>
+                <button onclick="addToCart('Beijinho de Coco', 5)">Adicionar</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h3>Seu Carrinho</h3>
+            <div id="cart-items"></div>
+            <div class="cart-total">Total: R$ <span id="total-price">0.00</span></div>
+            <button class="btn-checkout" onclick="checkout()">Finalizar no WhatsApp</button>
+            <button class="btn-close" onclick="toggleCart()">Continuar Comprando</button>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
